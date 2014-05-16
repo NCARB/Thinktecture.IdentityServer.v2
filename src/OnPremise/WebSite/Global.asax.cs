@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -7,6 +8,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Common.Logging;
+using NCARB.Infrastructure.Core;
+using NCARB.Infrastructure.IoC;
+using NCARB.Infrastructure.Unity;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.Repositories.Sql;
 
@@ -14,6 +19,7 @@ namespace Thinktecture.IdentityServer.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
         [Import]
         public IConfigurationRepository ConfigurationRepository { get; set; }
 
@@ -27,13 +33,37 @@ namespace Thinktecture.IdentityServer.Web
         protected void Application_Start()
         {
             // create empty config database if it not exists
-            Database.SetInitializer(new ConfigurationDatabaseInitializer());
+           // Database.SetInitializer(new ConfigurationDatabaseInitializer());
             
             // set the anti CSRF for name (that's a unqiue claim in our system)
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
 
             // setup MEF
             SetupCompositionContainer();
+
+            try
+            {
+                Bootstrap.With()
+                         .ConfigurationFromDatabase()
+                         .Unity()
+                         .Run();
+                var configurationRepository = DependencyResolver.Current.GetService<IConfigurationRepository>();
+   
+                Container.Current.ComposeExportedValue(configurationRepository);
+                Container.Current.ComposeExportedValue(DependencyResolver.Current.GetService<IRelyingPartyRepository>());
+
+            }
+            catch (System.Reflection.ReflectionTypeLoadException loadException)
+            {
+                LogManager.GetLogger("Application_Start").Fatal("Boostrapper failed", loadException);
+                throw new AggregateException(loadException.LoaderExceptions);
+
+            }
+            catch (Exception exception)
+            {
+                LogManager.GetLogger("Application_Start").Fatal("Boostrapper failed", exception);
+                throw;
+            }
             Container.Current.SatisfyImportsOnce(this);
 
             AreaRegistration.RegisterAllAreas();
