@@ -106,26 +106,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="NCARB.Infrastructure, Version=5.0.5239.25681, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NCARB.Infrastructure, Version=5.0.5252.11925, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\NCARB.Infrastructure.0.149\lib\net45\NCARB.Infrastructure.dll</HintPath>
+      <HintPath>..\..\..\packages\NCARB.Infrastructure.0.151\lib\net45\NCARB.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="NCARB.Infrastructure.IdentityServer, Version=5.0.5239.25683, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NCARB.Infrastructure.IdentityServer, Version=5.0.5252.11928, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Infrastructure\NCARB.Infrastructure.IdentityServer\bin\Debug\NCARB.Infrastructure.IdentityServer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\packages\NCARB.Infrastructure.IdentityServer.0.151\lib\net45\NCARB.Infrastructure.IdentityServer.dll</HintPath>
     </Reference>
-    <Reference Include="NCARB.Infrastructure.NHibernate, Version=5.0.5239.25681, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NCARB.Infrastructure.NHibernate, Version=5.0.5252.11926, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\NCARB.Infrastructure.NHibernate.0.149\lib\net45\NCARB.Infrastructure.NHibernate.dll</HintPath>
+      <HintPath>..\..\..\packages\NCARB.Infrastructure.NHibernate.0.151\lib\net45\NCARB.Infrastructure.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NCARB.Infrastructure.Unity, Version=5.0.5239.25682, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NCARB.Infrastructure.Unity, Version=5.0.5252.11927, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Infrastructure\NCARB.Infrastructure.Unity\bin\Debug\NCARB.Infrastructure.Unity.dll</HintPath>
+      <HintPath>..\..\..\packages\NCARB.Infrastructure.Unity.0.151\lib\net45\NCARB.Infrastructure.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="NCARB.Infrastructure.Web, Version=5.0.5239.25682, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NCARB.Infrastructure.Web, Version=5.0.5252.11926, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\NCARB.Infrastructure.Web.0.149\lib\net45\NCARB.Infrastructure.Web.dll</HintPath>
+      <HintPath>..\..\..\packages\NCARB.Infrastructure.Web.0.151\lib\net45\NCARB.Infrastructure.Web.dll</HintPath>
     </Reference>
     <Reference Include="NCommon, Version=1.2.0.0, Culture=neutral, PublicKeyToken=9a5002f889ddd3dd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1281,6 +1280,7 @@
     <Content Include="Areas\Admin\Views\Protocol\ADFSIntegration.cshtml" />
     <Content Include="Areas\Admin\Views\OpenIdConnectClient\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OpenIdConnectClient\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\Disk.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

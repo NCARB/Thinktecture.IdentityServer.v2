@@ -47,11 +47,6 @@ namespace Thinktecture.IdentityServer.Web
                          .ConfigurationFromDatabase()
                          .Unity()
                          .Run();
-                var configurationRepository = DependencyResolver.Current.GetService<IConfigurationRepository>();
-   
-                Container.Current.ComposeExportedValue(configurationRepository);
-                Container.Current.ComposeExportedValue(DependencyResolver.Current.GetService<IRelyingPartyRepository>());
-
             }
             catch (System.Reflection.ReflectionTypeLoadException loadException)
             {
